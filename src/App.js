@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { ToastPortal, ToastContainer, Toast } from './Toast';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(){
+	const [isToast, setIsToast] = useState(true);
+	const [isModal, setIsModal] = useState(true);
+
+	const toggleToast = () => {
+		setIsToast(!isToast);
+	}
+
+	const toggleModal = () => {
+		setIsModal(!isModal);
+	}
+
+	return(
+		<>
+			{ isToast &&
+				<ToastPortal>
+					<ToastContainer horizontalAlign="center" verticalAlign="top">
+						<Toast.Error toggleToast={toggleToast} close={true} slideTop={true}>
+							<div>Error</div>
+							<div>asdhgfhg !!</div> </Toast.Error>
+					</ToastContainer>
+				</ToastPortal>	
+			}
+			<button onClick={()=>{toggleToast()}}> Toast </button>
+			<button onClick={()=>{toggleModal()}}> Modal </button>
+		</>
+	)
 }
 
 export default App;
