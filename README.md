@@ -1,6 +1,6 @@
 ## TMN (Toast-Modal-Notify)
 
-This Project Have Tost, Modal and Push-Notification
+This Project Have Toast, Modal and Push-Notification
 
 ### `Toast Types:`
 1.Success <Toast.Success />
