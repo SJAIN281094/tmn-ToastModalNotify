@@ -46,14 +46,14 @@ const Styles = css`
 	min-height: 40px;  
   max-width: 450px;
   min-width: 250px;
-  margin: 0 15px;
+  margin: 6px 15px;
 	border-radius: 8px;	
-	background-color: ${props => props.bgColor || "grey"};
+	background-color: ${props => props.bgcolor || "grey"};
 	color: ${props => props.color || "#ffffff"};
-	animation: ${props => props.slideTop == true &&  css`${top} 0.2s ease-out 1;`}
-	${props => props.slideBottom == true &&  css`${bottom} 0.2s ease-out 1;`}
-	${props => props.slideRight == true &&  css`${right} 0.2s ease-out 1;`}
-	${props => props.slideLeft == true &&  css`${left} 0.2s ease-out 1;`}
+	animation: ${props => props.slidetop === true &&  css`${top} 0.2s ease-out 1;`}
+	${props => props.slidebottom === true &&  css`${bottom} 0.2s ease-out 1;`}
+	${props => props.slideright === true &&  css`${right} 0.2s ease-out 1;`}
+	${props => props.slideleft === true &&  css`${left} 0.2s ease-out 1;`}
 
 	.toast-close{
 		display: flex;

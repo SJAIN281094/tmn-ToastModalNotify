@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import styles from './style';
+import {ReactComponent as CloseIcon} from '../assets/icons/close.svg';
 
-function ToastPrototype({children, className, close, ...props}){
+function ToastPrototype({children, className, closebtn, autoClose, toggletoast, ...props}){
+  
+  useEffect(()=>{
+    if(autoClose && toggletoast){
+      setTimeout(()=>{
+        toggletoast();
+      }, autoClose * 1000);
+    }
+  }, [autoClose, toggletoast])
+  
   return(
     <div className={className} {...props}>
-      {close && <div className="toast-close" onClick={()=>{props.toggleToast()}}>X</div>}
+      {closebtn && <div className="toast-close" onClick={()=>{toggletoast()}}><CloseIcon/></div>}
       {children}
     </div>
   ) 
 }
 
-export const Toast = {
+const Toast = {
   Error: function ToastError(props) {
       return(
         <ToastPrototype {...props} />
@@ -46,22 +56,22 @@ export const Toast = {
 
 Toast.Error = styled(Toast.Error)`${styles}`;
 Toast.Error.defaultProps = {
-  bgColor: "#dc3545",
+  bgcolor: "#dc3545",
 };
 
 Toast.Success = styled(Toast.Success)`${styles}`;
 Toast.Success.defaultProps = {
-  bgColor: "#28a745",
+  bgcolor: "#28a745",
 };
 
 Toast.Warn = styled(Toast.Warn)`${styles}`;
 Toast.Warn.defaultProps = {
-  bgColor: "#ffc107",
+  bgcolor: "#ffc107",
 };
 
 Toast.Info = styled(Toast.Info)`${styles}`;
 Toast.Info.defaultProps = {
-  bgColor: "#17a2b8",
+  bgcolor: "#17a2b8",
 };
 
 Toast.Log = styled(Toast.Log)`${styles}`;

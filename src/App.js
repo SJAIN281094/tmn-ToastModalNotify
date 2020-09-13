@@ -17,10 +17,11 @@ function App(){
 		<>
 			{ isToast &&
 				<ToastPortal>
-					<ToastContainer horizontalAlign="center" verticalAlign="top">
-						<Toast.Error toggleToast={toggleToast} close={true} slideTop={true}>
-							<div>Error</div>
-							<div>asdhgfhg !!</div> </Toast.Error>
+					<ToastContainer horizontalalign="center" verticalalign="bottom">
+						<Toast.Error toggletoast={toggleToast} closebtn slideright	>
+							<span>Error</span>
+							<div>asdhgfhg !!</div>
+						</Toast.Error>
 					</ToastContainer>
 				</ToastPortal>	
 			}

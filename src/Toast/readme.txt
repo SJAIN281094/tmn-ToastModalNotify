@@ -5,7 +5,6 @@ Toast Types
 4.Info <Toast.Info />
 5.Log <Toast.Log />
 
-
 ToastPortal:
 1. <div id="toast-root"></div> // Add this in index.html above "root" div
 
@@ -15,10 +14,10 @@ ToastContainer :
 3. top: distance from top (Default 25px)
 4. bottom: distance from bottom (Default 25px)
 
-
 Toast.(Error/Success/Warn/Info/Log) :
 1. animation: slideTop= true/false
 			  slideBottom= true/false
 2. close=true/false {Default: false} // Add close icon at top-right
-3. toggleToast // Function to toggle toast			  
+3. toggleToast // Function to toggle toast
+4. autoclose // Aotomatically close toast in given time
 
